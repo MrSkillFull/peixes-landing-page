@@ -4,245 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peixes Frescos - Peixaria Online</title>
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Fonte Moderna -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <style>
-        :root {
-            --azul-profundo: #04182c;
-            --azul-claro: #0a2a47;
-            --dourado: #f4b41a;
-            --branco: #ffffff;
-            --cinza-claro: #e0e0e0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: var(--azul-profundo);
-            color: var(--branco);
-            overflow-x: hidden;
-        }
-
-        /* Efeito de fundo aquático */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at bottom, #063a66 0%, var(--azul-profundo) 70%);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 30px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--dourado);
-            margin-bottom: 20px;
-        }
-
-        .selo-limpo {
-            display: inline-block;
-            background-color: var(--dourado);
-            color: var(--azul-profundo);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 10px rgba(244, 180, 26, 0.4);
-        }
-
-        /* Seção de Diferenciais */
-        .diferenciais {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .dif-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .dif-card i {
-            font-size: 2.5rem;
-            color: var(--dourado);
-            margin-bottom: 15px;
-        }
-
-        .dif-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .dif-card p {
-            font-size: 0.9rem;
-            color: var(--cinza-claro);
-        }
-
-        /* Seção de Produtos */
-        .produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .produto-card {
-            background: linear-gradient(180deg, var(--azul-claro) 0%, var(--azul-profundo) 100%);
-            border: 2px solid var(--dourado);
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s;
-            position: relative;
-        }
-
-        .produto-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .produto-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #ccc; /* Placeholder para a foto real do peixe */
-        }
-
-        .produto-nome {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin: 20px 0 5px;
-            color: var(--dourado);
-            text-transform: uppercase;
-        }
-
-        .produto-preco {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-
-        .produto-preco span {
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        /* Barra de Benefícios */
-        .beneficios {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            background-color: rgba(10, 42, 71, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(244, 180, 26, 0.3);
-        }
-
-        .beneficio-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .beneficio-item i {
-            font-size: 2rem;
-            color: var(--dourado);
-        }
-
-        .beneficio-item h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-
-        .beneficio-item p {
-            font-size: 0.8rem;
-            color: var(--cinza-claro);
-        }
-
-        /* CTA Final */
-        .cta-section {
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .cta-section h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 900;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #25d366;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 800;
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1eb851;
-            transform: scale(1.05);
-        }
-
-        .btn-whatsapp i {
-            font-size: 2rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-style: italic;
-            color: var(--dourado);
-            font-weight: 700;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -279,21 +47,21 @@
         <section class="produtos">
             <!-- Tanhota -->
             <div class="produto-card">
-                <img src="https://via.placeholder.com/300x200/1e3a58/ffffff?text=Tanhota" alt="Peixe Tanhota">
+                <img src="https://phygital-files.mercafacil.com/planalto-bucket/uploads/produto/peixe_tainha_kg_fbf55595-bfdd-4130-b5fc-70516b20770e.png" alt="Peixe Tanhota">
                 <div class="produto-nome">Tanhota</div>
                 <div class="produto-preco"><span>R$</span> 15<span>,00</span></div>
             </div>
 
             <!-- Tilápia -->
             <div class="produto-card">
-                <img src="https://via.placeholder.com/300x200/1e3a58/ffffff?text=Tilápia" alt="Peixe Tilápia">
+                <img src="https://img.cdndsgni.com/preview/10960762.jpg" alt="Peixe Tilápia">
                 <div class="produto-nome">Tilápia</div>
                 <div class="produto-preco"><span>R$</span> 20<span>,00</span></div>
             </div>
 
             <!-- Filé de Peixe -->
             <div class="produto-card">
-                <img src="https://via.placeholder.com/300x200/1e3a58/ffffff?text=Filé+de+Peixe" alt="Filé de Peixe">
+                <img src="https://i0.wp.com/manatidelivery.com.br/wp-content/uploads/2022/08/File-de-Tilapia-3.png?fit=1080%2C1080&ssl=1" alt="Filé de Peixe">
                 <div class="produto-nome">Filé de Peixe</div>
                 <div class="produto-preco"><span>R$</span> 35<span>,00</span></div>
             </div>
